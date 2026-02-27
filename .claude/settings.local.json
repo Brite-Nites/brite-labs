@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__figma-desktop__get_metadata",
+      "WebSearch",
+      "WebFetch(domain:pangrampangram.com)",
+      "WebFetch(domain:vercel.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.fontshop.com)",
+      "WebFetch(domain:befonts.com)",
+      "WebFetch(domain:www.myfonts.com)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_wait_for",
+      "mcp__plugin_playwright_playwright__browser_click",
+      "mcp__plugin_playwright_playwright__browser_tabs",
+      "mcp__plugin_playwright_playwright__browser_close",
+      "Bash(unzip:*)",
+      "Bash(git -C \"C:/Users/maxwe/projects/brite-labs\" status)",
+      "Bash(git -C \"C:/Users/maxwe/projects/brite-labs\" log --oneline -3)",
+      "Bash(git -C \"C:/Users/maxwe/projects/brite-labs\" remote:*)",
+      "Bash(git -C \"C:/Users/maxwe/projects/brite-labs\" add .gitignore assets/ .claude/)"
+    ]
+  }
+}
