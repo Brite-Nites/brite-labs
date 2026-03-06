@@ -1,24 +1,21 @@
 {
   "permissions": {
     "allow": [
-      "mcp__figma-desktop__get_metadata",
-      "WebSearch",
-      "WebFetch(domain:pangrampangram.com)",
-      "WebFetch(domain:vercel.com)",
-      "WebFetch(domain:github.com)",
-      "WebFetch(domain:www.fontshop.com)",
-      "WebFetch(domain:befonts.com)",
-      "WebFetch(domain:www.myfonts.com)",
+      "Bash(npx create-next-app:*)",
+      "Bash(npx shadcn:*)",
+      "Bash(SHADCNBLOCKS_API_KEY=sk_live_U-u-fdAhEZBHDkFn1J6G1zh0rK4BZ1TJ npx shadcn@latest add:*)",
       "mcp__plugin_playwright_playwright__browser_navigate",
-      "mcp__plugin_playwright_playwright__browser_wait_for",
-      "mcp__plugin_playwright_playwright__browser_click",
-      "mcp__plugin_playwright_playwright__browser_tabs",
-      "mcp__plugin_playwright_playwright__browser_close",
-      "Bash(unzip:*)",
-      "Bash(git -C \"C:/Users/maxwe/projects/brite-labs\" status)",
-      "Bash(git -C \"C:/Users/maxwe/projects/brite-labs\" log --oneline -3)",
-      "Bash(git -C \"C:/Users/maxwe/projects/brite-labs\" remote:*)",
-      "Bash(git -C \"C:/Users/maxwe/projects/brite-labs\" add .gitignore assets/ .claude/)"
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "mcp__figma-desktop__get_design_context",
+      "mcp__figma-desktop__get_screenshot",
+      "Bash(npm run dev:*)",
+      "Bash(timeout:*)",
+      "mcp__plugin_playwright_playwright__browser_press_key",
+      "Bash(copy \"e:\\\\M.T. Design\\\\Holiday Light Co\\\\Web Assets\\\\Labs Assets\\\\hero image \\(placeholder\\).png\" \"C:\\\\Users\\\\maxwe\\\\projects\\\\brite-labs\\\\public\\\\images\\\\hero\\\\hero-placeholder.png\")",
+      "mcp__plugin_playwright_playwright__browser_hover",
+      "Bash(ffmpeg:*)",
+      "Bash(ls:*)",
+      "Bash( du -sh \"C:/Users/maxwe/projects/brite-labs/public/images/gallery/\"*.png \"C:/Users/maxwe/projects/brite-labs/public/images/gallery/\"*.jpg \"C:/Users/maxwe/projects/brite-labs/public/images/gallery/\"*.webp)"
     ]
   }
 }

@@ -1,0 +1,308 @@
+/* ==========================================================================
+   Brite Labs - Font Face Definitions
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Roobert - Logo + Headline
+   -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'Roobert';
+  src: url('./roobert/Roobert-TRIAL-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roobert';
+  src: url('./roobert/Roobert-TRIAL-LightItalic.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roobert';
+  src: url('./roobert/Roobert-TRIAL-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roobert';
+  src: url('./roobert/Roobert-TRIAL-RegularItalic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roobert';
+  src: url('./roobert/Roobert-TRIAL-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roobert';
+  src: url('./roobert/Roobert-TRIAL-MediumItalic.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roobert';
+  src: url('./roobert/Roobert-TRIAL-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roobert';
+  src: url('./roobert/Roobert-TRIAL-SemiBoldItalic.woff2') format('woff2');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roobert';
+  src: url('./roobert/Roobert-TRIAL-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roobert';
+  src: url('./roobert/Roobert-TRIAL-BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roobert';
+  src: url('./roobert/Roobert-TRIAL-Heavy.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roobert';
+  src: url('./roobert/Roobert-TRIAL-HeavyItalic.woff2') format('woff2');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --------------------------------------------------------------------------
+   Geist - Body Copy (Variable Font)
+   -------------------------------------------------------------------------- */
+
+/* Variable font - supports weight range 100-900 */
+@font-face {
+  font-family: 'Geist';
+  src: url('./geist/Geist[wght].woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('./geist/Geist-Italic[wght].woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Static font fallbacks for browsers without variable font support */
+@font-face {
+  font-family: 'Geist Static';
+  src: url('./geist/Geist-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Static';
+  src: url('./geist/Geist-ExtraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Static';
+  src: url('./geist/Geist-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Static';
+  src: url('./geist/Geist-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Static';
+  src: url('./geist/Geist-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Static';
+  src: url('./geist/Geist-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Static';
+  src: url('./geist/Geist-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Static';
+  src: url('./geist/Geist-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Static';
+  src: url('./geist/Geist-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --------------------------------------------------------------------------
+   Geist Mono - Code/Monospace
+   -------------------------------------------------------------------------- */
+
+/* Variable font - supports weight range 100-900 */
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('./geist-mono/GeistMono[wght].woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('./geist-mono/GeistMono-Italic[wght].woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --------------------------------------------------------------------------
+   Geist Pixel - Pixel/Retro Style
+   -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'Geist Pixel Circle';
+  src: url('./geist-pixel/GeistPixel-Circle.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Pixel Grid';
+  src: url('./geist-pixel/GeistPixel-Grid.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Pixel Line';
+  src: url('./geist-pixel/GeistPixel-Line.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Pixel Square';
+  src: url('./geist-pixel/GeistPixel-Square.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Pixel Triangle';
+  src: url('./geist-pixel/GeistPixel-Triangle.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --------------------------------------------------------------------------
+   MagdaClean - Eyebrow Heading
+   -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'MagdaClean';
+  src: url('./magdaclean/MagdaClean.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --------------------------------------------------------------------------
+   PP NeueBit - Pixel Heading
+   -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'PP NeueBit';
+  src: url('./ppneuebit/PPNeueBit-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   CSS Custom Properties - Font Families
+   ========================================================================== */
+
+:root {
+  /* Primary typography */
+  --font-headline: 'Roobert', system-ui, sans-serif;
+  --font-body: 'Geist', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+
+  /* Accent typography */
+  --font-eyebrow: 'MagdaClean', system-ui, sans-serif;
+  --font-pixel: 'PP NeueBit', 'Geist Pixel Square', monospace;
+
+  /* Geist Pixel variants */
+  --font-pixel-circle: 'Geist Pixel Circle', monospace;
+  --font-pixel-grid: 'Geist Pixel Grid', monospace;
+  --font-pixel-line: 'Geist Pixel Line', monospace;
+  --font-pixel-square: 'Geist Pixel Square', monospace;
+  --font-pixel-triangle: 'Geist Pixel Triangle', monospace;
+}
