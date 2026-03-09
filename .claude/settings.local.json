@@ -15,7 +15,16 @@
       "mcp__plugin_playwright_playwright__browser_hover",
       "Bash(ffmpeg:*)",
       "Bash(ls:*)",
-      "Bash( du -sh \"C:/Users/maxwe/projects/brite-labs/public/images/gallery/\"*.png \"C:/Users/maxwe/projects/brite-labs/public/images/gallery/\"*.jpg \"C:/Users/maxwe/projects/brite-labs/public/images/gallery/\"*.webp)"
+      "Bash( du -sh \"C:/Users/maxwe/projects/brite-labs/public/images/gallery/\"*.png \"C:/Users/maxwe/projects/brite-labs/public/images/gallery/\"*.jpg \"C:/Users/maxwe/projects/brite-labs/public/images/gallery/\"*.webp)",
+      "Bash(curl:*)",
+      "Read(//Users/britenites/Documents/GitHub/brite-labs/**)",
+      "Bash(du -sh /Users/britenites/Documents/GitHub/brite-labs/public/images/gallery/*.avif)",
+      "mcp__plugin_figma_figma__whoami",
+      "mcp__plugin_figma_figma__get_design_context",
+      "mcp__plugin_figma_figma__get_screenshot",
+      "Bash(npx:*)",
+      "Bash(npx playwright:*)",
+      "Bash(lsof:*)"
     ]
   }
 }
