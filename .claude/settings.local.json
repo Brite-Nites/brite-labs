@@ -24,7 +24,15 @@
       "mcp__plugin_figma_figma__get_screenshot",
       "Bash(npx:*)",
       "Bash(npx playwright:*)",
-      "Bash(lsof:*)"
+      "Bash(lsof:*)",
+      "mcp__plugin_britenites_linear-server__list_issues",
+      "mcp__plugin_britenites_linear-server__list_documents",
+      "mcp__plugin_britenites_linear-server__get_issue",
+      "mcp__plugin_britenites_linear-server__save_issue",
+      "Bash(where magick:*)",
+      "Bash(where:*)",
+      "Bash(npm install:*)",
+      "Bash(node scripts/process-images.mjs:*)"
     ]
   }
 }
