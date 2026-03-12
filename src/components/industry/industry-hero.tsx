@@ -1,69 +1,104 @@
+"use client";
+
+import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
+import { BookCallButton } from "@/components/ui/book-call-button";
+import { AnimatedStats } from "@/components/ui/animated-stats";
+
+interface Breadcrumb {
+  label: string;
+  href: string;
+}
+
+interface Stat {
+  value: string;
+  label: string;
+}
 
 interface IndustryHeroProps {
-  eyebrow: string;
+  breadcrumbs: Breadcrumb[];
+  currentPage: string;
   headline: string;
   subheadline: string;
   ctaText: string;
-  ctaHref: string;
-  backgroundImage: string;
-  backgroundAlt: string;
+  stats: Stat[];
+  backgroundImage?: string;
+  backgroundImageAlt?: string;
 }
 
 export function IndustryHero({
-  eyebrow,
+  breadcrumbs,
+  currentPage,
   headline,
   subheadline,
   ctaText,
-  ctaHref,
+  stats,
   backgroundImage,
-  backgroundAlt,
+  backgroundImageAlt = "Hero background",
 }: IndustryHeroProps) {
+  const heroRef = useRef<HTMLElement>(null);
+  const isInView = useInView(heroRef, { once: true, amount: 0.3 });
+
   return (
-    <section className="relative w-full">
-      {/* Hero Image */}
-      <div className="relative aspect-[16/9] w-full overflow-hidden md:aspect-[21/9]">
-        <Image
-          src={backgroundImage}
-          alt={backgroundAlt}
-          fill
-          className="object-cover"
-          priority
-        />
-        {/* Gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-
-        {/* Hero Content */}
-        <div className="absolute inset-0 flex flex-col justify-end p-7 md:p-14 lg:p-28">
-          <div className="max-w-3xl">
-            {/* Eyebrow */}
-            <span className="font-eyebrow text-xs tracking-wider text-white/80 md:text-sm">
-              {eyebrow}
-            </span>
-
-            {/* Headline */}
-            <h1 className="mt-3 font-heading text-3xl font-semibold leading-tight tracking-[-0.02em] text-white md:text-5xl lg:text-6xl">
-              {headline}
-            </h1>
-
-            {/* Subheadline */}
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/90 md:text-lg">
-              {subheadline}
-            </p>
-
-            {/* CTA Button */}
-            <div className="mt-6 md:mt-8">
-              <Button
-                asChild
-                size="lg"
-                className="bg-white text-black hover:bg-white/90"
+    <section ref={heroRef} className="flex flex-col gap-[30px] items-start pt-[40px] px-[120px] w-full">
+      {/* Text Container */}
+      <div className="flex flex-col gap-[30px] items-start">
+        {/* Breadcrumbs */}
+        <nav className="flex items-center font-eyebrow text-[13px]">
+          {breadcrumbs.map((crumb, index) => (
+            <span key={index}>
+              <Link
+                href={crumb.href}
+                className="text-[#a2a2a2] hover:text-[#363636] transition-colors"
               >
-                <a href={ctaHref}>{ctaText}</a>
-              </Button>
-            </div>
-          </div>
+                {crumb.label}
+              </Link>
+              <span className="text-[#a2a2a2]">{" "}/ </span>
+            </span>
+          ))}
+          <span className="text-[#363636]">{currentPage}</span>
+        </nav>
+
+        {/* Headline Group */}
+        <div className="relative h-[130px] w-[589px]">
+          <h1 className="absolute left-0 top-0 font-heading text-[48px] font-semibold text-black whitespace-nowrap">
+            {headline}
+          </h1>
+          <p className="absolute left-0 top-[67px] font-body text-[16px] text-[#969696] w-[589px] overflow-hidden text-ellipsis">
+            {subheadline}
+          </p>
         </div>
+      </div>
+
+      {/* CTA Button */}
+      <BookCallButton text={ctaText} />
+
+      {/* Hero Image Frame with Stats */}
+      <div className="relative flex items-end gap-[20px] h-[595px] w-full p-[20px] overflow-clip">
+        {/* Background Image */}
+        {backgroundImage ? (
+          <Image
+            src={backgroundImage}
+            alt={backgroundImageAlt}
+            fill
+            className="object-cover"
+            priority
+          />
+        ) : (
+          <div className="absolute inset-0 bg-[#e5e5e5]" />
+        )}
+
+        {/* Stats Overlay */}
+        <AnimatedStats
+          stats={stats}
+          duration={2.0}
+          delay={0.5}
+          variant="light"
+          isInView={isInView}
+          className="relative z-10"
+        />
       </div>
     </section>
   );

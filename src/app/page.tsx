@@ -22,7 +22,7 @@ export default function Home() {
         <div className="min-w-0 flex-1">
           <BriteAbout />
           <section id="portfolio">
-            <BriteGallery />
+            <BriteGallery className="bg-black" />
           </section>
           <section id="solutions">
             <CaseStudies2 />

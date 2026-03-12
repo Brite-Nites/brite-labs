@@ -5,11 +5,34 @@ import React from "react";
 
 import { cn } from "@/lib/utils";
 
-interface Gallery26Props {
-  className?: string;
+interface GalleryImage {
+  src: string;
+  alt: string;
 }
 
-const Gallery26 = ({ className }: Gallery26Props) => {
+// Default images for the home page
+const defaultImages: GalleryImage[] = [
+  { src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw13.jpeg", alt: "" },
+  { src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw8.jpeg", alt: "" },
+  { src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw12.jpeg", alt: "" },
+  { src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw9.jpeg", alt: "" },
+  { src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw13.jpeg", alt: "" },
+  { src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw8.jpeg", alt: "" },
+  { src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw13.jpeg", alt: "" },
+  { src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw12.jpeg", alt: "" },
+  { src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw9.jpeg", alt: "" },
+  { src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw13.jpeg", alt: "" },
+];
+
+interface Gallery26Props {
+  className?: string;
+  images?: GalleryImage[];
+}
+
+const Gallery26 = ({ className, images = defaultImages }: Gallery26Props) => {
+  // Helper to get image, cycling if needed
+  const getImage = (index: number) => images[index % images.length];
+
   return (
     <section className={cn("py-32", className)}>
       <div className="relative container">
@@ -25,8 +48,8 @@ const Gallery26 = ({ className }: Gallery26Props) => {
               width={200}
               height={200}
               className="size-full rounded-[2.5rem] object-cover"
-              src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw13.jpeg"
-              alt=""
+              src={getImage(0).src}
+              alt={getImage(0).alt}
             />
           </BlurVignette>
           <BlurVignette
@@ -40,8 +63,8 @@ const Gallery26 = ({ className }: Gallery26Props) => {
               width={200}
               height={200}
               className="size-full rounded-[2.5rem] object-cover"
-              src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw8.jpeg"
-              alt=""
+              src={getImage(1).src}
+              alt={getImage(1).alt}
             />
           </BlurVignette>
           <BlurVignette
@@ -55,8 +78,8 @@ const Gallery26 = ({ className }: Gallery26Props) => {
               width={200}
               height={200}
               className="size-full rounded-[2.5rem] object-cover"
-              src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw12.jpeg"
-              alt=""
+              src={getImage(2).src}
+              alt={getImage(2).alt}
             />
           </BlurVignette>
           <BlurVignette
@@ -70,8 +93,8 @@ const Gallery26 = ({ className }: Gallery26Props) => {
               width={200}
               height={200}
               className="size-full rounded-[2.5rem] object-cover"
-              src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw9.jpeg"
-              alt=""
+              src={getImage(3).src}
+              alt={getImage(3).alt}
             />
           </BlurVignette>
           <BlurVignette
@@ -85,8 +108,8 @@ const Gallery26 = ({ className }: Gallery26Props) => {
               width={200}
               height={200}
               className="size-full rounded-[2.5rem] object-cover"
-              src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw13.jpeg"
-              alt=""
+              src={getImage(4).src}
+              alt={getImage(4).alt}
             />
           </BlurVignette>
 
@@ -101,8 +124,8 @@ const Gallery26 = ({ className }: Gallery26Props) => {
               width={200}
               height={200}
               className="size-full rounded-[2.5rem] object-cover"
-              src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw8.jpeg"
-              alt=""
+              src={getImage(5).src}
+              alt={getImage(5).alt}
             />
           </BlurVignette>
           <BlurVignette
@@ -116,8 +139,8 @@ const Gallery26 = ({ className }: Gallery26Props) => {
               width={200}
               height={200}
               className="size-full rounded-[2.5rem] object-cover"
-              src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw13.jpeg"
-              alt=""
+              src={getImage(6).src}
+              alt={getImage(6).alt}
             />
           </BlurVignette>
           <BlurVignette
@@ -131,8 +154,8 @@ const Gallery26 = ({ className }: Gallery26Props) => {
               width={200}
               height={200}
               className="size-full rounded-[2.5rem] object-cover"
-              src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw12.jpeg"
-              alt=""
+              src={getImage(7).src}
+              alt={getImage(7).alt}
             />
           </BlurVignette>
           <BlurVignette
@@ -146,8 +169,8 @@ const Gallery26 = ({ className }: Gallery26Props) => {
               width={200}
               height={200}
               className="size-full rounded-[2.5rem] object-cover"
-              src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw9.jpeg"
-              alt=""
+              src={getImage(8).src}
+              alt={getImage(8).alt}
             />
           </BlurVignette>
           <BlurVignette
@@ -161,8 +184,8 @@ const Gallery26 = ({ className }: Gallery26Props) => {
               width={200}
               height={200}
               className="size-full rounded-[2.5rem] object-cover transition-all ease-in-out"
-              src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw13.jpeg"
-              alt=""
+              src={getImage(9).src}
+              alt={getImage(9).alt}
             />
           </BlurVignette>
         </div>

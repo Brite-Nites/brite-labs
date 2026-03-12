@@ -3,7 +3,12 @@
 import Image from "next/image";
 import { useRef, useState, useCallback } from "react";
 
-const galleryImages = [
+interface GalleryImage {
+  src: string;
+  alt: string;
+}
+
+const defaultImages: GalleryImage[] = [
   { src: '/images/gallery/01-bighorn-sheep.avif', alt: 'Big Horned Sheep Light Sculpture' },
   { src: '/images/gallery/02-prohibition.avif', alt: 'Prohibition Bar Lights' },
   { src: '/images/gallery/03-tops-diner.avif', alt: 'Tops Diner Holiday Lights' },
@@ -18,7 +23,7 @@ const galleryImages = [
   { src: '/images/gallery/12-purple-snowflakes.avif', alt: 'Purple Snowflake Ceiling' },
 ];
 
-function GalleryItem({ image, priority }: { image: typeof galleryImages[number]; priority: boolean }) {
+function GalleryItem({ image, priority }: { image: GalleryImage; priority: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -75,11 +80,25 @@ function GalleryItem({ image, priority }: { image: typeof galleryImages[number];
   );
 }
 
-export function BriteGallery() {
+interface BriteGalleryProps {
+  images?: GalleryImage[];
+  className?: string;
+  maxImages?: number;
+}
+
+export function BriteGallery({
+  images = defaultImages,
+  className,
+  maxImages = 9
+}: BriteGalleryProps) {
+  // Cap at maxImages, ensuring it's a multiple of 3 for clean grid
+  const cappedMax = Math.floor(maxImages / 3) * 3;
+  const displayImages = images.slice(0, cappedMax);
+
   return (
-    <section className="w-full bg-black px-2.5 py-[30px]">
+    <section className={`w-full px-2.5 py-[30px] ${className ?? ''}`}>
       <div className="grid grid-cols-3 gap-2.5">
-        {galleryImages.map((image, index) => (
+        {displayImages.map((image, index) => (
           <GalleryItem key={index} image={image} priority={index < 3} />
         ))}
       </div>

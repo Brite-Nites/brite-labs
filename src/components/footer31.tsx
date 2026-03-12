@@ -29,23 +29,36 @@ const FOOTER_LINKS = [
 
 interface Footer31Props {
   className?: string;
+  variant?: "dark" | "light";
 }
 
-const Footer31 = ({ className }: Footer31Props) => {
+const Footer31 = ({ className, variant = "dark" }: Footer31Props) => {
+  const isDark = variant === "dark";
+
+  const textColor = isDark ? "text-foreground" : "text-black";
+  const textMuted = isDark ? "text-foreground/70" : "text-[#666]";
+  const hoverColor = isDark ? "hover:text-foreground/30" : "hover:text-black/50";
+  const borderColor = isDark ? "border-b-foreground/10" : "border-b-black/20";
+  const placeholderColor = isDark ? "placeholder:text-foreground/20" : "placeholder:text-black/30";
+
   return (
     <section
-      className={cn("dark bg-background py-32 text-foreground", className)}
+      className={cn(
+        "py-32",
+        isDark ? "dark bg-background text-foreground" : "bg-white text-black",
+        className
+      )}
     >
       <div className="w-full px-7 md:px-14 lg:px-28">
         <div className="flex flex-col justify-between gap-15 lg:flex-row">
           <div className="flex flex-col gap-10">
-            <p className="font-eyebrow text-sm text-primary">Join the future</p>
+            <p className={cn("font-eyebrow text-sm", isDark ? "text-primary" : "text-[#8a8a8a]")}>Join the future</p>
             <p className="relative text-4xl font-medium tracking-tight lg:text-5xl">
               Let&apos;s build something amazing
             </p>
-            <div className="space-y-1 text-sm font-light tracking-tight lg:text-base">
+            <div className={cn("space-y-1 text-sm font-light tracking-tight lg:text-base", textMuted)}>
               <p>Get in touch: </p>
-              <a href="mailto:hello@britelabs.io" className="hover:text-primary transition-colors">hello@britelabs.io</a>
+              <a href="mailto:hello@britelabs.io" className={cn("hover:text-primary transition-colors", textColor)}>hello@britelabs.io</a>
             </div>
           </div>
           <div className="grid w-full max-w-xs grid-cols-2 gap-10 text-sm font-light lg:text-base">
@@ -54,7 +67,7 @@ const Footer31 = ({ className }: Footer31Props) => {
                 <li key={item.label}>
                   <a
                     href={item.href}
-                    className="tracking-tight text-foreground hover:text-foreground/30"
+                    className={cn("tracking-tight", textColor, hoverColor)}
                   >
                     {item.label}
                   </a>
@@ -66,10 +79,10 @@ const Footer31 = ({ className }: Footer31Props) => {
                 <li key={item.label}>
                   <a
                     href={item.href}
-                    className="group flex items-center gap-1 tracking-tight text-foreground hover:text-foreground/30"
+                    className={cn("group flex items-center gap-1 tracking-tight", textColor, hoverColor)}
                   >
                     {item.label}{" "}
-                    <ArrowUpRight className="size-3.5 text-foreground group-hover:text-muted-foreground/50" />
+                    <ArrowUpRight className={cn("size-3.5", textColor, "group-hover:opacity-50")} />
                   </a>
                 </li>
               ))}
@@ -78,28 +91,28 @@ const Footer31 = ({ className }: Footer31Props) => {
         </div>
         <div className="mt-20 flex flex-col justify-between gap-15 lg:flex-row">
           <div className="flex w-full max-w-md flex-col gap-10">
-            <div className="space-y-1 text-sm font-light tracking-tight lg:text-base">
+            <div className={cn("space-y-1 text-sm font-light tracking-tight lg:text-base", textMuted)}>
               <p>Sign up for newsletter : </p>
-              <form className="flex w-full items-end border-b border-b-foreground/10">
+              <form className={cn("flex w-full items-end border-b", borderColor)}>
                 <Input
                   type="text"
                   placeholder="Name*"
-                  className="mt-10 rounded-none border-0 !bg-transparent p-0 uppercase shadow-none placeholder:text-foreground/20 focus-visible:ring-0 lg:text-base"
+                  className={cn("mt-10 rounded-none border-0 !bg-transparent p-0 uppercase shadow-none focus-visible:ring-0 lg:text-base", textColor, placeholderColor)}
                 />
-                <Button type="submit" variant="ghost">
+                <Button type="submit" variant="ghost" className={textColor}>
                   <ArrowRight />
                 </Button>
               </form>
             </div>
           </div>
-          <div className="grid w-full max-w-xs grid-cols-2 gap-10 text-sm font-light lg:text-base">
+          <div className={cn("grid w-full max-w-xs grid-cols-2 gap-10 text-sm font-light lg:text-base", textMuted)}>
             <div className="w-32">Punjab, 141421 India, Asia</div>
             <ul className="space-y-1">
               {FOOTER_LINKS.map((item) => (
                 <li key={item.label}>
                   <a
                     href={item.href}
-                    className="group flex items-center gap-1 tracking-tight text-foreground hover:text-foreground/30"
+                    className={cn("group flex items-center gap-1 tracking-tight", textColor, hoverColor)}
                   >
                     {item.label}{" "}
                   </a>
@@ -109,7 +122,7 @@ const Footer31 = ({ className }: Footer31Props) => {
           </div>
         </div>
         <div className="mt-20 w-full lg:mt-32">
-          <BriteLabsLogoAnimated />
+          <BriteLabsLogoAnimated variant={variant} />
         </div>
       </div>
     </section>
@@ -141,13 +154,18 @@ const LOGO_GLYPHS = [
   { d: "M138.19 24.4461C136.732 24.4461 135.666 23.3442 135.666 21.9461C135.666 20.5598 136.732 19.446 138.166 19.446C139.671 19.446 140.725 20.548 140.725 21.9342C140.725 23.2968 139.683 24.4461 138.19 24.4461ZM136.282 21.9461C136.282 23.0362 137.076 23.8774 138.19 23.8774C139.339 23.8774 140.109 23.0599 140.109 21.9342C140.109 20.8086 139.327 20.0266 138.166 20.0266C137.076 20.0266 136.282 20.8323 136.282 21.9461ZM137.218 23.2139V20.6546H138.391C138.924 20.6546 139.232 20.9508 139.232 21.3181C139.232 21.6617 138.972 21.8395 138.711 21.8513V22.0527C139.007 22.0527 139.221 22.2778 139.221 22.5622V23.2139H138.64V22.7044C138.64 22.4793 138.498 22.3608 138.237 22.3608H137.799V23.2139H137.218ZM137.799 21.8631H138.237C138.498 21.8631 138.628 21.6736 138.628 21.4958C138.628 21.3063 138.498 21.1404 138.237 21.1404H137.799V21.8631Z" },
 ];
 
-function BriteLabsLogoAnimated() {
+function BriteLabsLogoAnimated({ variant = "dark" }: { variant?: "dark" | "light" }) {
+  const isDark = variant === "dark";
+
   return (
     <motion.svg
       viewBox="0 0 141 25"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="w-full max-w-4xl opacity-20 hover:opacity-40 transition-opacity"
+      className={cn(
+        "w-full max-w-4xl transition-opacity",
+        isDark ? "opacity-20 hover:opacity-40" : "opacity-30 hover:opacity-60"
+      )}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
