@@ -66,7 +66,7 @@ export function KaleidoscopePattern({
 
   // Generate the 12-pointed rosette with scalloped edge
   const generateRosette = (cx: number, cy: number, index: number) => {
-    const elements: JSX.Element[] = [];
+    const elements: React.JSX.Element[] = [];
     const numPoints = 12;
     const outerRadius = 62;
     const innerRadius = 52;
@@ -206,7 +206,7 @@ export function KaleidoscopePattern({
 
   // Generate the connecting kite shapes between rosettes
   const generateConnectors = () => {
-    const elements: JSX.Element[] = [];
+    const elements: React.JSX.Element[] = [];
     const visited = new Set<string>();
 
     gridPoints.forEach((p1, i) => {
@@ -322,7 +322,7 @@ export function KaleidoscopePattern({
 
   // Generate a version of the rosette with gradient stroke
   const generateColoredRosette = (cx: number, cy: number, index: number) => {
-    const elements: JSX.Element[] = [];
+    const elements: React.JSX.Element[] = [];
     const numPoints = 12;
     const outerRadius = 62;
     const innerRadius = 52;
@@ -457,7 +457,7 @@ export function KaleidoscopePattern({
 
   // Generate colored connectors
   const generateColoredConnectors = () => {
-    const elements: JSX.Element[] = [];
+    const elements: React.JSX.Element[] = [];
     const visited = new Set<string>();
 
     gridPoints.forEach((p1, i) => {
