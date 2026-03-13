@@ -20,10 +20,10 @@ export function BriteAbout() {
         <div className="flex w-full">
           {/* Content — lines up with gallery grid */}
           <div className="flex max-w-md flex-col gap-5">
-            <p className="font-eyebrow text-[15px] text-[#f7f4ff]">
+            <p className="font-eyebrow text-[15px] text-brite-lavender-light">
               Who we are
             </p>
-            <div className="font-sans text-[15px] leading-normal text-[#f7f4ff]">
+            <div className="font-sans text-[15px] leading-normal text-brite-lavender-light">
               <p>
                 We are a super awesome cool company who make super awesome cool
                 things. You should get to know us, we&apos;re very nice.

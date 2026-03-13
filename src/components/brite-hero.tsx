@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function BriteHero() {
   return (
     <section className="w-full bg-black px-7 pb-7 pt-24 md:px-14 lg:px-28">
@@ -5,11 +7,14 @@ export function BriteHero() {
       <HeroBar />
 
       {/* Hero Image with Text Overlay */}
-      <div className="relative mt-8 overflow-hidden rounded-lg">
-        <img
+      <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-lg">
+        <Image
           src="/images/hero/hero-placeholder.avif"
           alt="Brite Labs Hero"
-          className="h-auto w-full object-cover"
+          fill
+          priority
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
+          className="object-cover"
         />
 
         {/* "Light the world" Text Overlay */}
@@ -45,7 +50,7 @@ function HeroBar() {
       </a>
 
       {/* Center Tagline */}
-      <span className="font-eyebrow text-sm tracking-[-0.04em] text-[#e3d7ff] md:text-lg">
+      <span className="font-eyebrow text-sm tracking-[-0.04em] text-brite-lavender md:text-lg">
         LIGHT THE WORLD
       </span>
 
@@ -61,11 +66,11 @@ function BriteLogo() {
   return (
     <div className="flex items-baseline">
       {/* "Brite" in Roobert SemiBold */}
-      <span className="font-heading text-2xl font-semibold tracking-[-0.04em] text-[#e3d7ff] md:text-[32px]">
+      <span className="font-heading text-2xl font-semibold tracking-[-0.04em] text-brite-lavender md:text-[32px]">
         Brite
       </span>
       {/* "Labs" in PP NeueBit pixel font */}
-      <span className="font-pixel text-3xl tracking-[-0.04em] text-[#e3d7ff] md:text-[47px]">
+      <span className="font-pixel text-3xl tracking-[-0.04em] text-brite-lavender md:text-[47px]">
         Labs
       </span>
     </div>

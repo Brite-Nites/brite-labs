@@ -55,13 +55,13 @@ export function SideNav() {
           >
             {/* Dot indicator */}
             <span
-              className={`h-1.5 w-1.5 shrink-0 rounded-full bg-[#f7f4ff] transition-all duration-300 ${
+              className={`h-1.5 w-1.5 shrink-0 rounded-full bg-brite-lavender-light transition-all duration-300 ${
                 isActive ? "scale-100 opacity-100" : "scale-0 opacity-0"
               }`}
             />
             {/* Label */}
             <span
-              className={`font-eyebrow text-[15px] text-[#f7f4ff] transition-all duration-300 ${
+              className={`font-eyebrow text-[15px] text-brite-lavender-light transition-all duration-300 ${
                 isActive ? "translate-x-1 opacity-100" : "translate-x-0 opacity-50"
               }`}
             >

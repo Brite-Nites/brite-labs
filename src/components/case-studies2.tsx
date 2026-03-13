@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { cn } from "@/lib/utils";
 
 import { Separator } from "@/components/ui/separator";
@@ -19,11 +21,18 @@ const CaseStudies2 = ({ className }: CaseStudies2Props) => {
         <div className="mt-20">
           <div className="grid gap-16 lg:grid-cols-3 xl:gap-24">
             <div className="flex flex-col gap-10 border-border sm:flex-row lg:col-span-2 lg:border-r lg:pr-16 xl:pr-24">
-              <img
-                src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
-                alt="placeholder"
-                className="aspect-29/35 h-full w-full max-w-60 rounded-2xl object-cover"
-              />
+              <svg
+                viewBox="0 0 290 350"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Portrait placeholder"
+                className="aspect-[29/35] h-full w-full max-w-60 rounded-2xl"
+              >
+                <rect width="290" height="350" rx="16" fill="#e5e7eb" />
+                <circle cx="145" cy="120" r="50" fill="#9ca3af" />
+                <ellipse cx="145" cy="280" rx="80" ry="60" fill="#9ca3af" />
+              </svg>
               <div className="flex h-full flex-col justify-between gap-10">
                 <q className="sm:text-xl">
                   This productivity tool transformed how we collaborate. Our
@@ -37,9 +46,11 @@ const CaseStudies2 = ({ className }: CaseStudies2Props) => {
                     </p>
                     <p className="text-muted-foreground">Product Director</p>
                   </div>
-                  <img
+                  <Image
                     src="/images/logos/Labs Mark.svg"
-                    alt="logo"
+                    alt="Brite Labs logo"
+                    width={40}
+                    height={40}
                   />
                 </div>
               </div>
@@ -66,11 +77,18 @@ const CaseStudies2 = ({ className }: CaseStudies2Props) => {
           <Separator className="my-20" />
           <div className="grid gap-16 lg:grid-cols-3 xl:gap-24">
             <div className="flex flex-col gap-10 border-border sm:flex-row lg:col-span-2 lg:border-r lg:pr-16 xl:pr-24">
-              <img
-                src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg"
-                alt="placeholder"
-                className="aspect-29/35 h-full w-full max-w-60 rounded-2xl object-cover"
-              />
+              <svg
+                viewBox="0 0 290 350"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Portrait placeholder"
+                className="aspect-[29/35] h-full w-full max-w-60 rounded-2xl"
+              >
+                <rect width="290" height="350" rx="16" fill="#d1d5db" />
+                <circle cx="145" cy="120" r="50" fill="#6b7280" />
+                <ellipse cx="145" cy="280" rx="80" ry="60" fill="#6b7280" />
+              </svg>
               <div className="flex h-full flex-col justify-between gap-10">
                 <q className="sm:text-xl">
                   The interface is intuitive and customizable to our needs. We
@@ -84,9 +102,11 @@ const CaseStudies2 = ({ className }: CaseStudies2Props) => {
                     </p>
                     <p className="text-muted-foreground">Operations Lead</p>
                   </div>
-                  <img
+                  <Image
                     src="/images/logos/Labs Mark.svg"
-                    alt="logo"
+                    alt="Brite Labs logo"
+                    width={40}
+                    height={40}
                   />
                 </div>
               </div>

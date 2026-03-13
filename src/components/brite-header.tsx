@@ -1,6 +1,7 @@
+import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { BookCallButton } from "@/components/ui/book-call-button";
-import Image from "next/image";
 
 interface BriteHeaderProps {
   variant?: "dark" | "light";
@@ -21,8 +22,7 @@ export function BriteHeader({ variant = "dark", fixed = false, className }: Brit
       )}
     >
       <div className="flex items-center justify-between w-full">
-        {/* Left Logo */}
-        <a href="/" className="shrink-0">
+        <Link href="/" className="shrink-0">
           <Image
             src="/images/logos/Brite Labs Primary.svg"
             alt="Brite Labs"
@@ -32,19 +32,17 @@ export function BriteHeader({ variant = "dark", fixed = false, className }: Brit
               isDark ? "brightness-150" : "brightness-0"
             )}
           />
-        </a>
+        </Link>
 
-        {/* Center Tagline */}
         <span
           className={cn(
             "font-eyebrow text-sm tracking-[-0.04em] md:text-lg",
-            isDark ? "text-[#e3d7ff]" : "text-black"
+            isDark ? "text-brite-lavender" : "text-black"
           )}
         >
           CREATE THE MOMENT
         </span>
 
-        {/* Right CTA */}
         <BookCallButton
           text="Book a call"
           variant={isDark ? "inverted" : "default"}
