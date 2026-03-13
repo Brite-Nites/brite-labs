@@ -22,6 +22,9 @@ out/
 .DS_Store
 Thumbs.db
 
+# Screenshots (dev artifacts — don't commit to repo root)
+/*.png
+
 # Downloaded/temp files
 .playwright-mcp/
 
