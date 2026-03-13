@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 
 interface Service {
   title: string;
@@ -24,6 +24,31 @@ export function IndustryServices({
   intervalMs = 4000,
 }: IndustryServicesProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -34,24 +59,30 @@ export function IndustryServices({
   }, [services.length, intervalMs]);
 
   return (
-    <section className="flex gap-[120px] items-center justify-center px-[240px] h-screen w-full">
+    <motion.section
+      ref={sectionRef}
+      className="flex gap-[120px] items-center justify-center px-[240px] h-screen w-full"
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+    >
       {/* Left Column - Text Content */}
-      <div className="flex flex-col gap-[13px] items-start w-[482px] shrink-0">
-        <span className="font-eyebrow text-[13px] text-[#8a8a8a] tracking-[-0.52px]">
+      <motion.div className="flex flex-col gap-[13px] items-start w-[482px] shrink-0" variants={itemVariants}>
+        <motion.span className="font-eyebrow text-[13px] text-[#8a8a8a] tracking-[-0.52px]" variants={itemVariants}>
           {eyebrow}
-        </span>
-        <h2 className="font-heading text-[40px] font-semibold text-black tracking-[-1.6px] leading-tight">
+        </motion.span>
+        <motion.h2 className="font-heading text-[40px] font-semibold text-black tracking-[-1.6px] leading-tight" variants={itemVariants}>
           {headline}
-        </h2>
+        </motion.h2>
         {description && (
-          <p className="font-body text-[20px] text-[#8a8a8a] tracking-[-0.8px] leading-relaxed">
+          <motion.p className="font-body text-[20px] text-[#8a8a8a] tracking-[-0.8px] leading-relaxed" variants={itemVariants}>
             {description}
-          </p>
+          </motion.p>
         )}
-      </div>
+      </motion.div>
 
       {/* Right Column - Animated Cards */}
-      <div className="relative flex-1 h-[428px] overflow-hidden">
+      <motion.div className="relative flex-1 h-[428px] overflow-hidden" variants={itemVariants}>
         {/* Cards Container */}
         <div className="absolute inset-0 flex items-center justify-center">
           <AnimatePresence mode="wait">
@@ -67,8 +98,8 @@ export function IndustryServices({
             </motion.div>
           </AnimatePresence>
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
 

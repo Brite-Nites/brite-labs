@@ -1,4 +1,8 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
+import { motion, useInView } from "framer-motion";
 import { BookCallButton } from "@/components/ui/book-call-button";
 
 // Star icon for offer cards
@@ -50,10 +54,45 @@ export function IndustryCTA({
   backgroundImageAlt = "Background",
   offers,
 }: IndustryCTAProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  };
+
   return (
-    <section className="flex flex-col gap-[20px] items-start justify-center px-[120px] py-[80px] w-full">
+    <motion.section
+      ref={sectionRef}
+      className="flex flex-col gap-[20px] items-start justify-center px-[120px] py-[80px] w-full"
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+    >
       {/* Main CTA with Background Image */}
-      <div className="relative flex flex-col gap-[30px] h-[363px] items-center justify-center overflow-hidden px-[60px] py-[51px] w-full">
+      <motion.div
+        className="relative flex flex-col gap-[30px] h-[363px] items-center justify-center overflow-hidden px-[60px] py-[51px] w-full"
+        variants={itemVariants}
+      >
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -66,24 +105,24 @@ export function IndustryCTA({
         </div>
 
         {/* Content */}
-        <div className="relative flex flex-col gap-[15px] items-center text-center text-[#fdfdfd] z-10">
+        <motion.div className="relative flex flex-col gap-[15px] items-center text-center text-[#fdfdfd] z-10" variants={itemVariants}>
           {eyebrow && (
-            <span className="font-eyebrow text-[13px] tracking-[-0.52px] uppercase">
+            <motion.span className="font-eyebrow text-[13px] tracking-[-0.52px] uppercase" variants={itemVariants}>
               {eyebrow}
-            </span>
+            </motion.span>
           )}
-          <h2 className="font-heading text-[48px] font-semibold tracking-[-1.92px] leading-tight max-w-[611px]">
+          <motion.h2 className="font-heading text-[48px] font-semibold tracking-[-1.92px] leading-tight max-w-[611px]" variants={itemVariants}>
             {headline}
-          </h2>
+          </motion.h2>
           {description && (
-            <p className="font-body text-[20px] tracking-[-0.8px] max-w-[634px]">
+            <motion.p className="font-body text-[20px] tracking-[-0.8px] max-w-[634px]" variants={itemVariants}>
               {description}
-            </p>
+            </motion.p>
           )}
-        </div>
+        </motion.div>
 
         {/* CTA Buttons */}
-        <div className="relative flex gap-[30px] items-center z-10">
+        <motion.div className="relative flex gap-[30px] items-center z-10" variants={itemVariants}>
           <BookCallButton
             text={primaryCtaText}
             href={primaryCtaHref}
@@ -96,16 +135,17 @@ export function IndustryCTA({
               variant="outline"
             />
           )}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Offer Cards */}
       {offers && offers.length > 0 && (
-        <div className="flex gap-[20px] items-start w-full">
+        <motion.div className="flex gap-[20px] items-start w-full" variants={containerVariants}>
           {offers.map((offer, index) => (
-            <div
+            <motion.div
               key={index}
               className="flex flex-col flex-1 gap-[30px] items-start p-[30px] bg-[#f8f8f8] border border-[#e6e6e6] overflow-hidden"
+              variants={itemVariants}
             >
               {/* Icon */}
               <div className="flex items-center justify-center size-[40px] bg-[#eaeaea] border border-[#dfdfdf]">
@@ -121,10 +161,10 @@ export function IndustryCTA({
                   {offer.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       )}
-    </section>
+    </motion.section>
   );
 }

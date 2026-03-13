@@ -41,7 +41,24 @@
       "WebFetch(domain:logotyp.us)",
       "WebFetch(domain:seeklogo.com)",
       "WebFetch(domain:brandfetch.com)",
-      "WebFetch(domain:logowik.com)"
+      "WebFetch(domain:logowik.com)",
+      "mcp__figma-desktop__get_metadata",
+      "mcp__plugin_playwright_playwright__browser_evaluate",
+      "Bash(taskkill:*)",
+      "Bash(Start-Sleep -Seconds 2)",
+      "Bash(Start-Sleep -Seconds 5)",
+      "Bash(Get-Content \"C:\\\\Users\\\\maxwe\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-maxwe-projects-brite-labs\\\\tasks\\\\b4cadc3.output\" -Tail 20)",
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "Bash(copy \"c:\\\\Users\\\\maxwe\\\\Downloads\\\\brite_nites_2026_0104_175512_1225_Tavits.jpg\" \"C:\\\\Users\\\\maxwe\\\\projects\\\\brite-labs\\\\public\\\\images\\\\universities\\\\cta-background.jpg\")",
+      "mcp__plugin_playwright_playwright__browser_wait_for",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(Remove-Item -Path \"C:\\\\Users\\\\maxwe\\\\projects\\\\brite-labs\\\\.next\\\\dev\\\\lock\" -Force -ErrorAction SilentlyContinue)",
+      "mcp__plugin_playwright_playwright__browser_click",
+      "WebFetch(domain:www.chronicle.hq)",
+      "WebFetch(domain:chroniclehq.com)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   }
 }

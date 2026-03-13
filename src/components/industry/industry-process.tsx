@@ -1,3 +1,7 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { BookCallButton } from "@/components/ui/book-call-button";
 
 interface ProcessStep {
@@ -59,37 +63,72 @@ export function IndustryProcess({
   ctaText = "Book a call",
   ctaHref = "/contact",
 }: IndustryProcessProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  };
+
   return (
-    <section className="flex gap-[81px] items-center justify-center px-[240px] h-screen w-full">
+    <motion.section
+      ref={sectionRef}
+      className="flex gap-[81px] items-center justify-center px-[240px] h-screen w-full"
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+    >
       {/* Left Column - Header & CTA */}
-      <div className="flex gap-[16px] items-start shrink-0">
+      <motion.div className="flex gap-[16px] items-start shrink-0" variants={itemVariants}>
         <div className="flex flex-col h-[356px] items-start justify-between w-[294px]">
           {/* Headline & Description */}
-          <div className="flex flex-col gap-[13px] items-start w-full">
-            <h2 className="font-heading text-[40px] font-semibold text-black tracking-[-1.6px] leading-none whitespace-pre-line">
+          <motion.div className="flex flex-col gap-[13px] items-start w-full" variants={itemVariants}>
+            <motion.h2 className="font-heading text-[40px] font-semibold text-black tracking-[-1.6px] leading-none whitespace-pre-line" variants={itemVariants}>
               {headline}
-            </h2>
-            <p className="font-body text-[20px] text-[#8a8a8a] tracking-[-0.8px] leading-snug">
+            </motion.h2>
+            <motion.p className="font-body text-[20px] text-[#8a8a8a] tracking-[-0.8px] leading-snug" variants={itemVariants}>
               {description}
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
           {/* CTA Button */}
-          <BookCallButton text={ctaText} href={ctaHref} />
+          <motion.div variants={itemVariants}>
+            <BookCallButton text={ctaText} href={ctaHref} />
+          </motion.div>
         </div>
 
         {/* Asterisk Icon */}
         <AsteriskIcon className="text-[#9a9a9a] shrink-0" />
-      </div>
+      </motion.div>
 
       {/* Right Column - Process Steps */}
-      <div className="flex flex-col flex-1 gap-[20px] items-start justify-center min-w-0">
+      <motion.div className="flex flex-col flex-1 gap-[20px] items-start justify-center min-w-0" variants={containerVariants}>
         {steps.map((step, index) => (
-          <div
+          <motion.div
             key={index}
             className={`flex gap-[48px] items-start pb-[20px] w-full ${
               index < steps.length - 1 ? "border-b border-[#d6d6d6]" : ""
             }`}
+            variants={itemVariants}
           >
             {/* Step Number */}
             <div className="flex items-center justify-center bg-[#f6f6f6] size-[36px] shrink-0">
@@ -113,9 +152,9 @@ export function IndustryProcess({
                 {step.description}
               </p>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }

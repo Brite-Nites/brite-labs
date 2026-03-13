@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRef, useState, useCallback } from "react";
+import { motion, useInView } from "framer-motion";
 
 interface GalleryImage {
   src: string;
@@ -94,14 +95,47 @@ export function BriteGallery({
   // Cap at maxImages, ensuring it's a multiple of 3 for clean grid
   const cappedMax = Math.floor(maxImages / 3) * 3;
   const displayImages = images.slice(0, cappedMax);
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  };
 
   return (
-    <section className={`w-full px-2.5 py-[30px] ${className ?? ''}`}>
-      <div className="grid grid-cols-3 gap-2.5">
+    <motion.section
+      ref={sectionRef}
+      className={`w-full px-2.5 py-[30px] ${className ?? ''}`}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={containerVariants}
+    >
+      <motion.div className="grid grid-cols-3 gap-2.5" variants={containerVariants}>
         {displayImages.map((image, index) => (
-          <GalleryItem key={index} image={image} priority={index < 3} />
+          <motion.div key={index} variants={itemVariants}>
+            <GalleryItem image={image} priority={index < 3} />
+          </motion.div>
         ))}
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
