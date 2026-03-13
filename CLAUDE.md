@@ -43,7 +43,7 @@ docs/plans/               # Execution plans per Linear issue
 - **Images**: Use `next/image` for raster images. Use plain `<img>` or inline SVG for small SVG logos/icons (avoids unnecessary optimization pipeline). Always set `sizes` on `fill` images.
 - **Links**: Use Next.js `<Link>` for internal navigation, not `<a>`.
 - **Fonts**: All fonts are WOFF2. OTF files exist in the repo but are not referenced — use WOFF2 versions.
-- **Server Actions**: Include try/catch, validate input length, never log PII. Rate limiting required before connecting to external services.
+- **Server Actions**: Include try/catch, validate input length, never log PII. Rate limiting uses `@upstash/ratelimit` with lazy-initialized Redis client (fail closed on outage). Requires `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` env vars — see `.env.example`.
 
 ## Linear Project
 
