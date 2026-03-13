@@ -5,6 +5,9 @@ export type NewsletterState = {
   message: string;
 };
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MAX_EMAIL_LENGTH = 254; // RFC 5321
+
 export async function subscribeToNewsletter(
   _prevState: NewsletterState,
   formData: FormData
@@ -15,13 +18,19 @@ export async function subscribeToNewsletter(
     return { status: "error", message: "Email is required." };
   }
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
+  if (email.length > MAX_EMAIL_LENGTH) {
     return { status: "error", message: "Please enter a valid email address." };
   }
 
-  // TODO: Connect to email service (Resend, Mailchimp, etc.)
-  console.log(`[Newsletter] New subscription: ${email}`);
+  if (!EMAIL_REGEX.test(email)) {
+    return { status: "error", message: "Please enter a valid email address." };
+  }
 
-  return { status: "success", message: "Thanks for subscribing!" };
+  try {
+    // TODO: Connect to email service (Resend, Mailchimp, etc.)
+    // TODO: Add rate limiting before connecting to a real provider
+    return { status: "success", message: "Thanks for subscribing!" };
+  } catch {
+    return { status: "error", message: "Something went wrong. Please try again." };
+  }
 }

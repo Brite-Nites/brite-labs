@@ -12,8 +12,8 @@ export function BriteAbout() {
         src="/images/about/about-bg.avif"
         alt=""
         fill
+        sizes="(max-width: 768px) 100vw, 125vw"
         className="object-cover pointer-events-none"
-        priority
       />
       {/* Content overlay — text aligned to gallery left edge */}
       <div className="absolute inset-0 flex items-end px-7 pb-[60px] md:px-14 lg:pl-[calc(20%+10px)] lg:pr-0">
