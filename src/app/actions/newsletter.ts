@@ -1,3 +1,5 @@
+// CSRF protection: Next.js Server Actions enforce same-origin via the Origin header.
+// If a reverse proxy is added, verify it forwards the Origin header unmodified.
 "use server";
 
 export type NewsletterState = {

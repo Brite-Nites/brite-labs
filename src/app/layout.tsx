@@ -2,15 +2,11 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-// Roobert - Headlines/Logo
+// Roobert - Headlines/Logo (only weights used in production)
 const roobert = localFont({
   src: [
-    { path: "../../public/fonts/roobert/Roobert-TRIAL-Light.woff2", weight: "300", style: "normal" },
-    { path: "../../public/fonts/roobert/Roobert-TRIAL-Regular.woff2", weight: "400", style: "normal" },
     { path: "../../public/fonts/roobert/Roobert-TRIAL-Medium.woff2", weight: "500", style: "normal" },
     { path: "../../public/fonts/roobert/Roobert-TRIAL-SemiBold.woff2", weight: "600", style: "normal" },
-    { path: "../../public/fonts/roobert/Roobert-TRIAL-Bold.woff2", weight: "700", style: "normal" },
-    { path: "../../public/fonts/roobert/Roobert-TRIAL-Heavy.woff2", weight: "800", style: "normal" },
   ],
   variable: "--font-roobert",
   display: "swap",
@@ -32,14 +28,14 @@ const geistMono = localFont({
 
 // MagdaClean - Eyebrow headings, tags, pills
 const magdaClean = localFont({
-  src: "../../public/fonts/magdaclean/MagdaClean.otf",
+  src: "../../public/fonts/magdaclean/MagdaClean.woff2",
   variable: "--font-magda",
   display: "swap",
 });
 
 // PP NeueBit - Pixel headings (rare/occasional use)
 const ppNeueBit = localFont({
-  src: "../../public/fonts/ppneuebit/PPNeueBit-Bold.otf",
+  src: "../../public/fonts/ppneuebit/PPNeueBit-Bold.woff2",
   variable: "--font-pixel",
   weight: "700",
   display: "swap",

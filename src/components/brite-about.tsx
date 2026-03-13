@@ -4,8 +4,7 @@ export function BriteAbout() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-black lg:-ml-[25%] lg:w-[125%]"
-      style={{ aspectRatio: "1440 / 674" }}
+      className="relative overflow-hidden bg-black lg:-ml-[25%] lg:w-[125%] aspect-[1440/674]"
     >
       {/* Background image — full bleed */}
       <Image
